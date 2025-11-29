@@ -10,7 +10,8 @@ AppVersion={#MyAppVersion}
 AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 
-DefaultDirName={autopf}\GenericSecurityTray
+
+DefaultDirName={pf}\GenericSecurityTray
 DefaultGroupName=Generic Security Tray
 
 OutputDir=.
@@ -18,6 +19,7 @@ OutputBaseFilename=GenericSecurityTray_Setup_v1.0
 Compression=lzma
 SolidCompression=yes
 PrivilegesRequired=admin
+
 
 [Files]
 Source: "windows\GenericSecurityTray\src\GenericSecurityTray\bin\Release\net8.0-windows\*"; \
