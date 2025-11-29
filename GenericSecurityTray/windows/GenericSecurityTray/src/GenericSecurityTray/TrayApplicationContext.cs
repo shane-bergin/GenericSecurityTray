@@ -32,25 +32,36 @@ namespace GenericSecurityTray
             _trayIcon.ShowBalloonTip(5000, "Generic Security Tray", "Right-click for options", ToolTipIcon.Info);
         }
 
-        private string GetScriptPath()
+            private string GetScriptPath()
+    {
+
+        var candidates = new[]
         {
-            // 1. Installed location (after installer)
-            var installed = @"C:\Program Files\GenericSecurityTray\scripts\GenericSecurityHardening.ps1";
-            if (File.Exists(installed)) return installed;
+            @"C:\Program Files\GenericSecurityTray\scripts\GenericSecurityHardening.ps1",
+            @"C:\Program Files (x86)\GenericSecurityTray\scripts\GenericSecurityHardening.ps1"
+        };
 
-            // 2. Developer mode — go up 5 levels from bin\Release\net8.0-windows\
-            var exeDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
-            var root = exeDir;
-            for (int i = 0; i < 5; i++)
-                root = Path.GetDirectoryName(root)!;
+        foreach (var path in candidates)
+            if (File.Exists(path))
+                return path;
 
-            var dev = Path.Combine(root, "windows", "GenericSecurityTray", "scripts", "GenericSecurityHardening.ps1");
-            if (File.Exists(dev))
-                return dev;
 
-            return string.Empty;
+        var exeDir = Assembly.GetExecutingAssembly().Location;
+        if (string.IsNullOrEmpty(exeDir)) return string.Empty;
+
+        exeDir = Path.GetDirectoryName(exeDir)!;
+
+        var root = exeDir;
+        for (int i = 0; i < 10 && root != null; i++)
+        {
+            var test = Path.Combine(root, "windows", "GenericSecurityTray", "scripts", "GenericSecurityHardening.ps1");
+            if (File.Exists(test)) return test;
+            root = Path.GetDirectoryName(root);
         }
 
+        return string.Empty;
+    }
+        
         private void RunScript(string mode)
         {
             var path = GetScriptPath();
