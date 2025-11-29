@@ -10,8 +10,8 @@ A lightweight Windows 11 system-tray utility that applies a full Microsoft-recom
 - Fully reversible — Revert restores defaults
 - Logs everything to `%ProgramData%\GenericSecurityTray\Logs`
 
-## Screenshot
-*(Add tray icon + menu screenshot here after first build)*
+<img width="218" height="135" alt="image" src="https://github.com/user-attachments/assets/cbd00959-b211-45ce-a56b-eb6be9fa3c46" />
+
 
 ## Build
 ```bash
