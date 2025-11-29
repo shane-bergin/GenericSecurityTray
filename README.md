@@ -12,6 +12,9 @@ A lightweight Windows 11 system-tray utility that applies a full Microsoft-recom
 
 <img width="218" height="135" alt="image" src="https://github.com/user-attachments/assets/cbd00959-b211-45ce-a56b-eb6be9fa3c46" />
 
+Polices not in place--
+
+<img width="1084" height="536" alt="image" src="https://github.com/user-attachments/assets/498ea5f9-b957-4c42-8ad0-3881ee7e21ee" />
 
 ## Build
 ```bash
