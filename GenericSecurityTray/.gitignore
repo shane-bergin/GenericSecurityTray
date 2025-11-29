@@ -1,0 +1,26 @@
+# Build output
+bin/
+obj/
+out/
+publish/
+
+# Visual Studio / Rider / VSCode
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+
+# Installer output
+*.exe
+*.msi
+*.iss.tmp
+
+# Logs & temp
+*.log
+*.tmp
+Thumbs.db
+.DS_Store
+
+# Secrets
+.env
