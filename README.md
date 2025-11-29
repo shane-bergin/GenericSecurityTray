@@ -27,7 +27,9 @@ Polices not in place--
 
 If you close out of the tray with agressive mode on and run into difficulties accessing certain applications and are unable to use the Windows Security GUI to make exceptions use the following Powershell commands to remove Agressive baseline policy...
 
-(Caution; the below Powershell snippet will remove all ASR rules
+(Caution; the below Powershell snippet will remove all ASR rules.)
+
+*Run Powershell as Adminstrator*
 
 Get-MpPreference | Select-Object -ExpandProperty AttackSurfaceReductionRules_Ids | ForEach-Object { Remove-MpPreference -AttackSurfaceReductionRules_Ids $_ }
 
